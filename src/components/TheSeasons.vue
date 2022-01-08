@@ -18,18 +18,6 @@
     >
       <span class="content__name"> Весна/Осень </span>
     </router-link>
-    <div class="content__slider">
-      <img src="#" alt="" class="content__img" />
-    </div>
-    <li class="menu__item">
-      <router-link
-        :to="{ name: 'CatalogPage' }"
-        class="menu__link"
-        @click.native="menuOpened = false"
-      >
-        Каталог
-      </router-link>
-    </li>
   </section>
 </template>
 <script>
@@ -40,7 +28,7 @@ export default {
 <style lang="scss" scoped>
 .content {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(2, 400px);
   grid-gap: 30px 20px;
   margin-bottom: 64px;

@@ -1,8 +1,8 @@
 const catalog = [
   {
     name: "Гольф длинный рукав",
-    id: "8-3",
-    season: "autumn",
+    model: "8-3",
+    season: "Весна-Осень",
     colors: [
       "beet",
       "beige",
@@ -32,7 +32,7 @@ const catalog = [
       "turquoise",
       "white",
     ],
-    sizes: ["s", "m", "l", "xl"],
+    size: ["s-m", "m-l"],
     gamma: "mono",
     prices: {
       S: 85,
@@ -43,8 +43,8 @@ const catalog = [
   },
   {
     name: "Лодка длинный рукав",
-    id: "148-3",
-    season: "autumn",
+    model: "148-3",
+    season: "Весна-Осень",
     colors: [
       "beet",
       "beige",
@@ -69,8 +69,8 @@ const catalog = [
       "red",
       "white",
     ],
-    sizes: ["s", "m", "l", "xl"],
-    gamma: "mono",
+    size: ["l-xl", "xl-xxl"],
+    gamma: "color",
     prices: {
       S: 85,
       M: 95,

@@ -4,10 +4,14 @@
     <div class="product-card__inner d-flex">
       <div class="product-card__slider">
         <VueSlickCarousel v-bind="settings">
-          <div class="product-card__img-inner" v-for="index in 3" :key="index">
+          <div
+            class="product-card__img-inner"
+            v-for="(color, index) in product.colors"
+            :key="index"
+          >
             <img
               class="img"
-              :src="`/images/products/${product.id}/${product.colors[0]}.jpg`"
+              :src="`/images/products/${product.model}/${color}.jpg`"
               :alt="`${product.name} ${product.colors[0]}`"
             />
           </div>
@@ -15,7 +19,7 @@
       </div>
       <h3 class="product-card__name">
         {{ product.name }}
-        <span class="product-card__number"> № {{ product.id }} </span>
+        <span class="product-card__number"> № {{ product.model }} </span>
       </h3>
       <div
         class="product-card__size-price"
@@ -76,14 +80,14 @@ export default {
         black: "000000",
         blue: "2092C8",
         bordeaux: "630610",
-        brown: "281F22",
+        brown: "3E3236",
         cream: "F1ECE8",
         ["cream-rose"]: "E2D6D6",
         ["dark-beige"]: "A28B85",
-        ["dark-blue"]: "01091C",
+        ["dark-blue"]: "191642",
         ["dark-cappuccino"]: "6E5663",
         ["dark-gray"]: "34394D",
-        ["dark-green"]: "012032",
+        ["dark-green"]: "0A2D0C",
         electric: "1B38A1",
         freesia: "71355B",
         gray: "90909A",

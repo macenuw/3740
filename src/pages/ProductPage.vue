@@ -14,10 +14,128 @@
           <span class="product__color-name">Черный</span>
           <button class="product__color-btn">Добавить</button>
         </div>
+        <div class="product__color">
+          <span class="product__color-square"></span>
+          <span class="product__color-name">Черный</span>
+          <button class="product__color-btn">Добавить</button>
+        </div>
+        <div class="product__color">
+          <span class="product__color-square"></span>
+          <span class="product__color-name">Черный</span>
+          <button class="product__color-btn">Добавить</button>
+        </div>
+        <div class="product__color">
+          <span class="product__color-square"></span>
+          <span class="product__color-name">Черный</span>
+          <button class="product__color-btn">Добавить</button>
+        </div>
+        <div class="product__color">
+          <span class="product__color-square"></span>
+          <span class="product__color-name">Черный</span>
+          <button class="product__color-btn">Добавить</button>
+        </div>
+        <div class="product__color">
+          <span class="product__color-square"></span>
+          <span class="product__color-name">Черный</span>
+          <button class="product__color-btn">Добавить</button>
+        </div>
+        <div class="product__color">
+          <span class="product__color-square"></span>
+          <span class="product__color-name">Черный</span>
+          <button class="product__color-btn">Добавить</button>
+        </div>
+        <div class="product__color">
+          <span class="product__color-square"></span>
+          <span class="product__color-name">Черный</span>
+          <button class="product__color-btn">Добавить</button>
+        </div>
+        <div class="product__color">
+          <span class="product__color-square"></span>
+          <span class="product__color-name">Черный</span>
+          <button class="product__color-btn">Добавить</button>
+        </div>
+        <div class="product__color">
+          <span class="product__color-square"></span>
+          <span class="product__color-name">Черный</span>
+          <button class="product__color-btn">Добавить</button>
+        </div>
+        <div class="product__color">
+          <span class="product__color-square"></span>
+          <span class="product__color-name">Черный</span>
+          <button class="product__color-btn">Добавить</button>
+        </div>
+        <div class="product__color">
+          <span class="product__color-square"></span>
+          <span class="product__color-name">Черный</span>
+          <button class="product__color-btn">Добавить</button>
+        </div>
+        <div class="product__color">
+          <span class="product__color-square"></span>
+          <span class="product__color-name">Черный</span>
+          <button class="product__color-btn">Добавить</button>
+        </div>
+        <div class="product__color">
+          <span class="product__color-square"></span>
+          <span class="product__color-name">Черный</span>
+          <button class="product__color-btn">Добавить</button>
+        </div>
+        <div class="product__color">
+          <span class="product__color-square"></span>
+          <span class="product__color-name">Черный</span>
+          <button class="product__color-btn">Добавить</button>
+        </div>
+        <div class="product__color">
+          <span class="product__color-square"></span>
+          <span class="product__color-name">Черный</span>
+          <button class="product__color-btn">Добавить</button>
+        </div>
+        <div class="product__color">
+          <span class="product__color-square"></span>
+          <span class="product__color-name">Черный</span>
+          <button class="product__color-btn">Добавить</button>
+        </div>
+        <div class="product__color">
+          <span class="product__color-square"></span>
+          <span class="product__color-name">Черный</span>
+          <button class="product__color-btn">Добавить</button>
+        </div>
       </div>
     </div>
     <div class="product__info">
       <h2 class="product__title">Футболка Отворот</h2>
+      <div class="product__details">
+        <p class="product__details-info">
+          <span class="product__model"> Модель № 148-3 </span>
+          <span class="product__compound"
+            >Состав: Натуральная кожа. Отвечаю
+          </span>
+        </p>
+        <div class="product__added-color">
+          <div class="product__color product__color--added">
+            <span class="product__color-square"></span>
+            <span class="product__color-name">Черный</span>
+            <div class="product__added-size">
+              <label for="s" class="product__label">
+                <span class="product__label-info">S</span>
+                <input type="number" class="product__label-input" />
+              </label>
+              <label for="s" class="product__label">
+                <span class="product__label-info">M</span>
+                <input type="number" class="product__label-input" />
+              </label>
+              <label for="s" class="product__label">
+                <span class="product__label-info">L</span>
+                <input type="number" class="product__label-input" />
+              </label>
+              <label for="s" class="product__label">
+                <span class="product__label-info">XL</span>
+                <input type="number" class="product__label-input" />
+              </label>
+            </div>
+            <button class="product__color-btn">В корзину</button>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -56,6 +174,9 @@
     border: 1px solid black;
     border-radius: 5px;
     margin-bottom: 6px;
+    &--added {
+      width: 100%;
+    }
   }
   &__color-square {
     width: 20px;
@@ -83,14 +204,51 @@
       color: black;
     }
   }
+  &__added-size {
+    display: flex;
+    justify-content: space-between;
+    max-width: 60%;
+    width: 100%;
+  }
+  &__label {
+    display: flex;
+    align-items: center;
+    max-width: 80px;
+  }
+  &__label-info {
+    display: block;
+    margin-right: 4px;
+  }
+  &__label-input {
+    width: 100%;
+    font-size: 12px;
+    padding: 4px 3px;
+  }
   &__info {
-    max-width: 500px;
+    max-width: 600px;
     width: 100%;
   }
   &__title {
     display: block;
     width: 100%;
     text-align: center;
+  }
+  &__details-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid #eaadef;
+    margin-bottom: 12px;
+    padding: 8px 0;
+  }
+  &__model {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 12px;
+  }
+  &__compound {
+    display: block;
   }
 }
 </style>

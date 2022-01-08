@@ -8,7 +8,7 @@
           class="filters__btn"
           v-for="option in category.options"
           :key="option"
-          @click="optionHandler(key, option)"
+          @click="updateFilter({ key, option })"
           v-bind:class="{
             active: category.isArray
               ? filter[key].includes(option)
@@ -19,52 +19,27 @@
         </button>
       </div>
     </div>
-    <button class="filters__zeroed-btn" @click="clearFilters">Сбросить</button>
+    <button class="filters__zeroed-btn" @click="clearFilter">Сбросить</button>
   </div>
 </template>
 
 <script>
+import config from "../assets/js/config.js";
+import { mapMutations } from "vuex";
 export default {
   name: "Filters",
   data() {
     return {
-      isActive: false,
-      config: {
-        season: { options: ["Лето", "Зима", "Весна-Осень"], label: "Сезон" },
-        size: {
-          options: ["s-m", "m-l", "l-xl", "xl-xxl"],
-          label: "Размер",
-          isArray: true,
-        },
-        gamma: { options: ["mono", "color"], label: "Палитра" },
-        model: {
-          options: ["8-3", "148-3", "291-1"],
-          label: "Популярные Модели",
-        },
-      },
-      filter: {
-        season: "",
-        size: [],
-        model: "",
-        gamma: "",
-      },
+      config,
     };
   },
+  computed: {
+    filter() {
+      return this.$store.state.filter;
+    },
+  },
   methods: {
-    optionHandler(key, option) {
-      if (this.config[key].isArray) {
-        if (!this.filter[key].includes(option)) {
-          this.filter[key].push(option);
-        }
-      } else {
-        this.filter[key] = option;
-      }
-    },
-    clearFilters() {
-      for (let key in this.filter) {
-        this.filter[key] = Array.isArray(this.filter[key]) ? [] : "";
-      }
-    },
+    ...mapMutations(["updateFilter", "clearFilter"]),
   },
 };
 </script>
@@ -99,7 +74,7 @@ export default {
   &__btn {
     background: none;
     border: 3px solid #eaadef;
-    background-color: #eaadef;
+    background-color: white;
     text-align: center;
     margin-bottom: 12px;
     border-radius: 8px;
@@ -108,7 +83,7 @@ export default {
     font-size: 16px;
     transition: 0.3s;
     &.active {
-      background-color: white;
+      background-color: #eaadef;
     }
     &:hover {
       border-color: black;
@@ -118,11 +93,12 @@ export default {
     border: 3px solid #eaadef;
     background: none;
     box-shadow: none;
-    font-size: 24px;
-    padding: 8px 16px;
+    font-size: 18px;
+    padding: 2px 16px;
     border-radius: 12px;
     width: 100%;
     font-weight: 600;
+    letter-spacing: 1px;
     transition: 0.3s;
     &:hover {
       color: black;

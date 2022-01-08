@@ -14,6 +14,7 @@
 <script>
 import Filters from "../components/Filters.vue";
 import ProductCard from "../components/ProductCard.vue";
+import { mapGetters } from "vuex";
 
 export default {
   name: "Catalog",
@@ -22,62 +23,12 @@ export default {
     ProductCard,
   },
   data() {
-    return {
-      products: [
-        {
-          name: "Футболка Рукав Отворот",
-          seasons: "Лето",
-          id: "291-1",
-          colors: ["black", "red", "beigeBone", "white", "beige"],
-          sizes: ["44-46", "48-50", "52-54", "54-56"],
-          prices: {
-            "44-46": 95,
-            "48-50": 105,
-            "52-54": 115,
-            "54-56": 125,
-          },
-        },
-        {
-          name: "Футболка Рукав НЕОтворот",
-          seasons: "Лето",
-          id: "291-1",
-          colors: ["red", "black", "cappuccinoLight", "white", "beigeDark"],
-          sizes: ["44-46", "48-50", "52-54", "54-56"],
-          prices: {
-            "44-46": 95,
-            "48-50": 105,
-            "52-54": 115,
-            "54-56": 125,
-          },
-        },
-        {
-          name: "Футболка Рукав Отворот",
-          seasons: "Зима",
-          id: "291-1",
-          colors: ["black", "red", "beigeBone", "white", "beige"],
-          sizes: ["44-46", "48-50", "52-54", "54-56"],
-          prices: {
-            "44-46": 95,
-            "48-50": 105,
-            "52-54": 115,
-            "54-56": 125,
-          },
-        },
-        {
-          name: "Футболка Рукав НЕОтворот",
-          seasons: "Осень-Весна",
-          id: "291-1",
-          colors: ["red", "black", "cappuccinoLight", "white", "beigeDark"],
-          sizes: ["44-46", "48-50", "52-54", "54-56"],
-          prices: {
-            "44-46": 95,
-            "48-50": 105,
-            "52-54": 115,
-            "54-56": 125,
-          },
-        },
-      ],
-    };
+    return {};
+  },
+  computed: {
+    ...mapGetters({
+      products: "productsByFilter",
+    }),
   },
 };
 </script>

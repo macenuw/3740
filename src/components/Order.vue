@@ -14,17 +14,17 @@
     </div>
   </section>
 </template>
+
 <script></script>
+
 <style lang="scss" scoped>
 .order {
   margin-bottom: 64px;
-
   &__items {
     justify-content: space-around;
     align-items: center;
     position: relative;
   }
-
   &__item {
     text-align: center;
     max-width: 240px;
@@ -34,7 +34,6 @@
     background-color: white;
     z-index: 2;
   }
-
   &__line {
     position: absolute;
     width: 90%;

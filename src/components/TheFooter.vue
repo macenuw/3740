@@ -64,6 +64,7 @@
     color: white;
     font-size: 18px;
     display: flex;
+    align-items: center;
 
     &:not(:last-child) {
       margin-right: 24px;
@@ -78,6 +79,9 @@
   &__link {
     color: white;
     padding: 0 8px;
+    @media (max-width: 998px) {
+      font-size: 14px;
+    }
   }
   .menu {
     display: flex;
@@ -93,7 +97,9 @@
       white-space: nowrap;
       border-bottom: 2px solid transparent;
       padding: 0 5px;
-
+      @media (max-width: 998px) {
+        font-size: 16px;
+      }
       &:hover {
         color: #eaadef;
         border-color: #eaadef;
