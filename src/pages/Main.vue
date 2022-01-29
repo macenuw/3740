@@ -3,7 +3,6 @@
     <TopSection />
     <Seasons />
     <Sales />
-    <Order />
   </main>
 </template>
 
@@ -11,7 +10,6 @@
 import TopSection from "../components/TopSection.vue";
 import Seasons from "../components/TheSeasons.vue";
 import Sales from "../components/Sales.vue";
-import Order from "../components/Order.vue";
 
 export default {
   name: "MainPage",
@@ -19,7 +17,6 @@ export default {
     TopSection,
     Seasons,
     Sales,
-    Order,
   },
 };
 </script>

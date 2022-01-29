@@ -38,6 +38,7 @@ export default {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
+  padding-bottom: 30px;
   &__show {
     display: grid;
     grid-template-columns: repeat(3, 1fr);

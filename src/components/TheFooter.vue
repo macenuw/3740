@@ -5,11 +5,7 @@
         <img src="@/assets/images/3740.svg" alt="3740" class="logo__img" />
       </a>
       <ul class="footer__contacts d-flex">
-        <li class="footer__item">Анастасия</li>
-        <li class="footer__item">
-          <img src="@/assets/images/Viber-Icon.svg" alt="" />
-          <a href="tel:+380932017699" class="footer__link"> 0932017699 </a>
-        </li>
+        <li class="footer__item">Контакты:</li>
         <li class="footer__item">
           <a href="tel:+380939902231" class="footer__link"> 0939902231 </a>
         </li>
@@ -52,22 +48,44 @@
     justify-content: space-between;
     align-items: center;
     margin-bottom: 30px;
+    @media (max-width: 700px) {
+      flex-direction: column;
+    }
   }
-
+  .logo {
+    @media (max-width: 700px) {
+      margin-bottom: 30px;
+    }
+  }
   &__down {
     display: flex;
     justify-content: flex-end;
     padding-bottom: 15px;
+    @media (max-width: 820px) {
+      display: none;
+    }
   }
-
+  &__contacts {
+    @media (max-width: 550px) {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+  }
   &__item {
     color: white;
     font-size: 18px;
     display: flex;
     align-items: center;
-
+    @media (max-width: 550px) {
+      margin: 5px 0;
+    }
     &:not(:last-child) {
       margin-right: 24px;
+      @media (max-width: 550px) {
+        margin-right: 0;
+      }
     }
 
     img {

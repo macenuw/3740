@@ -65,6 +65,15 @@ export default {
         slidesToScroll: 1,
         dots: true,
         arrows: true,
+        responsive: [
+          {
+            breakpoint: 960,
+            settings: {
+              arrows: false,
+              dots: true,
+            },
+          },
+        ],
       },
     };
   },
@@ -80,6 +89,9 @@ export default {
   &__item {
     display: flex !important;
     justify-content: center;
+    @media (max-width: 865px) {
+      position: relative;
+    }
   }
 
   &__info {
@@ -89,6 +101,18 @@ export default {
     justify-content: center;
     width: 50%;
     position: relative;
+    @media (max-width: 865px) {
+      position: absolute;
+      bottom: 100px;
+      background-color: rgba(255, 255, 255, 0.7);
+      border-radius: 12px;
+    }
+    @media (max-width: 665px) {
+      width: 70%;
+    }
+    @media (max-width: 500px) {
+      width: 90%;
+    }
   }
 
   &__text {
@@ -99,6 +123,10 @@ export default {
     margin-bottom: 18px;
     position: relative;
     padding-top: 32px;
+    @media (max-width: 865px) {
+      font-size: 18px;
+      max-width: 100%;
+    }
 
     &::before {
       content: "";
@@ -108,6 +136,9 @@ export default {
       width: 200px;
       height: 1px;
       background-color: black;
+      @media (max-width: 865px) {
+        display: none;
+      }
     }
   }
 
@@ -120,6 +151,15 @@ export default {
     position: absolute;
     top: calc(50% + 60px);
     left: calc(50% + 32px);
+    @media (max-width: 865px) {
+      top: calc(50% + 70px);
+      background-color: white;
+      color: black;
+      font-weight: bold;
+    }
+    @media (max-width: 400px) {
+      left: 50%;
+    }
   }
 
   &__img-inner {
@@ -168,6 +208,10 @@ export default {
     position: absolute;
     bottom: 30px;
     left: 300px;
+    @media (max-width: 900px) {
+      bottom: -20px;
+      left: calc(50% - 60px);
+    }
 
     & li {
       margin: 0 8px;

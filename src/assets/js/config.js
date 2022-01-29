@@ -4,12 +4,12 @@ const config = {
     label: "Сезон",
   },
   size: {
-    options: ["s-m", "m-l", "l-xl", "xl-xxl"],
+    options: ["Норма", "Полу-Батал", "Батал", "Супер-Батал"],
     label: "Размер",
     isArray: true,
   },
   gamma: {
-    options: ["mono", "color"],
+    options: ["Однотонные", "Цветные"],
     label: "Палитра",
   },
   model: {

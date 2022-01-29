@@ -32,6 +32,9 @@ export default {
   grid-template-rows: repeat(2, 400px);
   grid-gap: 30px 20px;
   margin-bottom: 64px;
+  @media (max-width: 830px) {
+    grid-template-rows: repeat(2, 30vh);
+  }
 
   &__sessons {
     display: flex;
@@ -47,36 +50,26 @@ export default {
     position: relative;
     box-shadow: 0px 5px 50px rgba(37, 1, 0, 0.2);
     transition: 2.8s;
-
-    &:hover {
-      background-size: 120%;
-    }
-
+    background-size: cover;
+    cursor: pointer;
     &--spring {
       grid-column-start: 1;
       grid-column-end: 3;
       background-image: url("../assets/images/spring.jpg");
       background-repeat: no-repeat;
       background-position: center;
-      background-size: 100%;
     }
 
     &--summer {
       background-image: url("../assets/images/summer.jpg");
       background-repeat: no-repeat;
       background-position: bottom;
-      background-size: 100%;
     }
 
     &--winter {
       background-image: url("../assets/images/winter.jpg");
       background-repeat: no-repeat;
       background-position: center;
-      background-size: 115%;
-
-      &:hover {
-        background-size: 120%;
-      }
     }
   }
 
@@ -90,17 +83,6 @@ export default {
     background-color: rgba(0, 0, 0, 0.4);
     border-radius: 8px;
     padding: 8px;
-  }
-
-  &__slider {
-    max-width: 400px;
-    width: 100%;
-    background-color: rgba(0, 0, 0, 0.4);
-    border-radius: 24px;
-    grid-column-start: 3;
-    grid-column-end: 4;
-    grid-row-start: 1;
-    grid-row-end: 3;
   }
 }
 </style>

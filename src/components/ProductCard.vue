@@ -1,5 +1,8 @@
 <template>
-  <div class="product-card__item">
+  <router-link
+    :to="{ name: 'ProductPage', params: { id: product.model } }"
+    class="product-card__item"
+  >
     <a href="#" class="top__item-link"></a>
     <div class="product-card__inner d-flex">
       <div class="product-card__slider">
@@ -27,7 +30,7 @@
         :key="size"
       >
         <div class="product-card__row d-flex">
-          <span class="product-card__size">Размер: {{ size }}</span>
+          <span class="product-card__size">{{ sizesMap[size] }}</span>
           <span class="product-card__cost">
             Цена:
             <span class="product-card__price"> {{ price }} грн </span>
@@ -44,14 +47,16 @@
         >
           <span
             class="product-card__circul"
-            :style="{ backgroundColor: `#${colorsMap[color]}` }"
+            :style="{ backgroundColor: `#${colorsMap[color].colorCode}` }"
           ></span>
         </a>
       </div>
     </div>
-  </div>
+  </router-link>
 </template>
 <script>
+import colorsMap from "../assets/js/colorMap.js";
+import sizesMap from "../assets/js/sizes.js";
 import VueSlickCarousel from "vue-slick-carousel";
 import "vue-slick-carousel/dist/vue-slick-carousel.css";
 
@@ -62,6 +67,8 @@ export default {
   },
   data() {
     return {
+      colorsMap,
+      sizesMap,
       settings: {
         slidesToShow: 1,
         slidesToScroll: 1,
@@ -73,35 +80,6 @@ export default {
         autoplaySpeed: 5000,
         cssEase: "linear",
         fade: true,
-      },
-      colorsMap: {
-        beet: "2A1327",
-        beige: "B4A79F",
-        black: "000000",
-        blue: "2092C8",
-        bordeaux: "630610",
-        brown: "3E3236",
-        cream: "F1ECE8",
-        ["cream-rose"]: "E2D6D6",
-        ["dark-beige"]: "A28B85",
-        ["dark-blue"]: "191642",
-        ["dark-cappuccino"]: "6E5663",
-        ["dark-gray"]: "34394D",
-        ["dark-green"]: "0A2D0C",
-        electric: "1B38A1",
-        freesia: "71355B",
-        gray: "90909A",
-        khaki: "6B5E4E",
-        ["light-powder"]: "EFB6C9",
-        lilac: "9170B5",
-        mustard: "E1974C",
-        olive: "6C7A25",
-        ["pale-rose"]: "BD5C7B",
-        powder: "D69FBF",
-        red: "B80034",
-        sand: "A46E54",
-        turquoise: "008B9E",
-        white: "FFFFFF",
       },
     };
   },
@@ -128,6 +106,8 @@ export default {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    height: 100%;
+    height: 611px;
   }
   &__slider {
     width: 300px;
@@ -158,6 +138,7 @@ export default {
     letter-spacing: 1px;
     font-weight: 600;
     margin-bottom: 6px;
+    color: black;
   }
 
   &__number {
@@ -182,7 +163,7 @@ export default {
     background-color: #eaadef;
     color: black;
     width: 100%;
-    justify-content: space-around;
+    justify-content: space-between;
     font-size: 14px;
   }
 
@@ -193,12 +174,14 @@ export default {
     width: 100%;
     min-height: 100px;
     padding: 0 12px;
+    margin-top: auto;
   }
 
   &__colors-title {
     text-align: left;
     width: 100%;
     margin-bottom: 8px;
+    color: black;
   }
 
   &__color {
@@ -212,6 +195,10 @@ export default {
     width: 20px;
     height: 20px;
     border-radius: 4px;
+    transition: 0.3s;
+    &:hover {
+      transform: scale(2);
+    }
   }
 }
 </style>

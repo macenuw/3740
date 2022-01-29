@@ -36,8 +36,39 @@ export default {
         infinite: true,
         autoplay: true,
         speed: 2000,
-        autoplaySpeed: 2000,
-        cssEase: "linear",
+        centerMode: true,
+        pauseOnDotsHover: true,
+        pauseOnFocus: true,
+        pauseOnHover: true,
+        responsive: [
+          {
+            breakpoint: 1260,
+            settings: {
+              slidesToShow: 3,
+              slidesToScroll: 1,
+              centerMode: true,
+              centerPadding: "10px",
+            },
+          },
+          {
+            breakpoint: 940,
+            settings: {
+              slidesToShow: 2,
+              slidesToScroll: 1,
+              centerMode: true,
+              centerPadding: "50px",
+            },
+          },
+          {
+            breakpoint: 640,
+            settings: {
+              slidesToShow: 1,
+              slidesToScroll: 1,
+              centerMode: true,
+              centerPadding: "50px",
+            },
+          },
+        ],
       },
     };
   },
