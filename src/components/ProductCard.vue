@@ -124,6 +124,7 @@ export default {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
 
     .img {
       width: 298px;

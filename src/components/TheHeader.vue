@@ -67,6 +67,7 @@
     >
       <div class="card__inner">
         <h2 class="card__title">Корзина</h2>
+        <button class="card__close-btn" @click="isCard = !isCard"></button>
         <div class="card__order">
           <ul class="card__product">
             <li
@@ -176,6 +177,7 @@ export default {
   box-shadow: 0px 5px 50px rgba(37, 1, 0, 0.2);
   @media (max-width: 800px) {
     position: relative;
+    padding: 15px;
   }
   &__btn-inner {
     position: absolute;
@@ -188,7 +190,7 @@ export default {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    right: 80px;
+    right: 60px;
     display: none;
     @media (max-width: 800px) {
       display: flex;
@@ -298,7 +300,7 @@ export default {
 .card {
   position: fixed;
   background-color: white;
-  width: 30vw;
+  width: 40vw;
   right: 0;
   top: 100px;
   z-index: 999;
@@ -306,25 +308,43 @@ export default {
   border-radius: 8px;
   transform: translateX(800px);
   transition: 0.3s;
+  min-width: 320px;
   &.active {
     transform: translateX(0px);
   }
   &__inner {
     border: 1px solid black;
     padding: 8px 12px;
+    position: relative;
+    height: calc(100vh - 140px);
   }
   &__title {
     text-align: center;
   }
+  &__close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 20px;
+    height: 20px;
+    background: none;
+    border: none;
+    box-shadow: none;
+    background-image: url("../assets/images/close-btn.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
   &__order {
     display: flex;
     flex-direction: column;
-    min-height: 50vh;
-    max-height: 80vh;
+    height: calc(100% - 30px);
     overflow: auto;
     padding-right: 8px;
   }
   &__product {
+    max-height: 70vh;
+    overflow: auto;
   }
   &__model {
     font-weight: bold;

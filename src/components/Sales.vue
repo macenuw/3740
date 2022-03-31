@@ -35,7 +35,7 @@ export default {
         arrows: false,
         infinite: true,
         autoplay: true,
-        speed: 2000,
+        speed: 5000,
         centerMode: true,
         pauseOnDotsHover: true,
         pauseOnFocus: true,
@@ -51,11 +51,11 @@ export default {
             },
           },
           {
-            breakpoint: 940,
+            breakpoint: 960,
             settings: {
               slidesToShow: 2,
               slidesToScroll: 1,
-              centerMode: true,
+              centerMode: false,
               centerPadding: "50px",
             },
           },
@@ -64,7 +64,7 @@ export default {
             settings: {
               slidesToShow: 1,
               slidesToScroll: 1,
-              centerMode: true,
+              centerMode: false,
               centerPadding: "50px",
             },
           },
@@ -80,6 +80,9 @@ export default {
   margin-bottom: 48px;
   &__title {
     width: 100%;
+  }
+  .product-card__item {
+    margin: 0 auto;
   }
 }
 </style>
