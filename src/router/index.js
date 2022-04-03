@@ -4,6 +4,7 @@ import Main from "../pages/Main.vue";
 import Catalog from "../pages/Catalog.vue";
 import Delivery from "../pages/Delivery.vue";
 import Contact from "../pages/ContactPage.vue";
+import OrderPage from "../pages/OrderPage.vue";
 import Product from "../pages/ProductPage.vue";
 
 Vue.use(VueRouter);
@@ -28,6 +29,11 @@ const routes = [
     path: "contact",
     name: "ContactPage",
     component: Contact,
+  },
+  {
+    path: "orderPage",
+    name: "OrderPage",
+    component: OrderPage,
   },
   {
     path: "product/:id",

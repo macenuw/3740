@@ -22,4 +22,7 @@ export default {
 @import "/src/assets/scss/fonts.scss";
 @import "/src/assets/scss/global.scss";
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+#app {
+  overflow: hidden;
+}
 </style>

@@ -39,6 +39,7 @@ export default {
   align-items: flex-start;
   justify-content: space-between;
   padding-bottom: 30px;
+  min-height: calc(100vh - 282px);
   &__show {
     display: grid;
     grid-template-columns: repeat(3, 1fr);

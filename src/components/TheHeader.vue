@@ -132,7 +132,13 @@
             <span>Сумма Заказа:</span>
             <span class="card__total-cost"> {{ totalPrice }} &#8372;</span>
           </div>
-          <button class="card__order-done">Оформить Заказ</button>
+          <router-link
+            @click="isCard = !isCard"
+            :to="{ name: 'OrderPage' }"
+            class="card__order-done"
+          >
+            Оформить Заказ
+          </router-link>
         </div>
       </div>
     </div>
@@ -175,8 +181,9 @@ export default {
   padding: 20px 36px 20px 48px;
   margin-top: 12px;
   box-shadow: 0px 5px 50px rgba(37, 1, 0, 0.2);
+  position: relative;
+
   @media (max-width: 800px) {
-    position: relative;
     padding: 15px;
   }
   &__btn-inner {
@@ -298,7 +305,7 @@ export default {
   }
 }
 .card {
-  position: fixed;
+  position: absolute;
   background-color: white;
   width: 40vw;
   right: 0;
@@ -306,9 +313,10 @@ export default {
   z-index: 999;
   padding: 8px;
   border-radius: 8px;
-  transform: translateX(800px);
+  transform: translateX(9800px);
   transition: 0.3s;
   min-width: 320px;
+  max-width: 420px;
   &.active {
     transform: translateX(0px);
   }
@@ -343,7 +351,6 @@ export default {
     padding-right: 8px;
   }
   &__product {
-    max-height: 70vh;
     overflow: auto;
   }
   &__model {
@@ -407,6 +414,11 @@ export default {
     font-weight: bold;
     letter-spacing: 1.2px;
     border-radius: 8px;
+    text-align: center;
+    transition: 0.3s;
+    &:hover {
+      color: white;
+    }
   }
 }
 </style>

@@ -47,7 +47,6 @@ export default {
 <style lang="scss" scoped>
 .filters {
   width: 280px;
-  border: 3px solid #eaadef;
   border-radius: 12px;
   padding: 12px;
   &__title {
@@ -58,13 +57,13 @@ export default {
   &__category {
     display: flex;
     flex-direction: column;
-    padding: 0 0 0 12px;
-    margin-bottom: 24px;
+    margin-bottom: 14px;
   }
   &__subtitle {
     font-size: 18px;
     letter-spacing: 1px;
     font-weight: 600;
+    margin-bottom: 6px;
   }
   &__inner {
     padding: 0 0 0 24px;
@@ -73,12 +72,12 @@ export default {
   }
   &__btn {
     background: none;
-    border: 3px solid #eaadef;
+    border: 1px solid #eaadef;
     background-color: white;
     text-align: center;
     margin-bottom: 12px;
-    border-radius: 8px;
-    padding: 4px 12px;
+    border-radius: 4px;
+    padding: 8px 12px;
     font-weight: 600;
     font-size: 16px;
     transition: 0.3s;
@@ -90,11 +89,11 @@ export default {
     }
   }
   &__zeroed-btn {
-    border: 3px solid #eaadef;
+    border: 2px solid #eaadef;
     background: none;
     box-shadow: none;
     font-size: 18px;
-    padding: 2px 16px;
+    padding: 6px 16px;
     border-radius: 12px;
     width: 100%;
     font-weight: 600;

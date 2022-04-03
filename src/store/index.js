@@ -99,13 +99,7 @@ export default new Vuex.Store({
             item[key].length
           ) {
             if (
-              !item[key].some((size) =>
-                state.filter[key]
-                  // .join(",")
-                  // .toLowerCase()
-                  // .split(",")
-                  .includes(sizes[size])
-              )
+              !item[key].some((size) => state.filter[key].includes(sizes[size]))
             ) {
               flag = false;
               break;

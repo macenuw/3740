@@ -24,11 +24,11 @@
         </carousel-3d>
       </div>
       <div class="product__info">
-        <!-- <h2 class="product__title">{{ product.name }}</h2> -->
-        <div class="product__details">
-          <!-- <p class="product__details-info">
+        <div class="product__info-text">
+          <h2 class="product__title">{{ product.name }}</h2>
+          <p class="product__details-info">
             <span class="product__model"> Модель № {{ product.model }} </span>
-            <span class="product__compound">{{ product.info }} </span>
+            <span class="product__compound">Состав: {{ product.info }} </span>
           </p>
           <ul class="product__price">
             <li
@@ -36,65 +36,26 @@
               v-for="(price, index) in product.prices"
               :key="index"
             >
-              {{ sizesList[index] }}: {{ price }} &#8372;
+              <span>{{ sizesList[index] }}:</span>
+              <span>{{ price }} &#8372;</span>
             </li>
-          </ul> -->
-          <div
-            class="product__added-color"
-            v-for="(sizes, colorName) in preOrder[product.model]"
-            :key="`${product.model}-${colorName}`"
-          >
-            <div class="product__color product__color--added">
-              <span
-                class="product__color-square"
-                :style="{
-                  backgroundColor: `#${colorsMap[colorName].colorCode}`,
-                }"
-              ></span>
-              <span class="product__color-name">{{
-                colorsMap[colorName].name
-              }}</span>
-              <div
-                class="product__added-size"
-                v-for="(amount, sizeName) in sizes"
-                :key="`${product.model}-${colorName}-${sizeName}`"
-              >
-                <label
-                  :for="`${product.model}-${colorName}-${sizeName}`"
-                  class="product__label"
-                >
-                  <span class="product__label-info">{{
-                    sizesList[sizeName]
-                  }}</span>
-                  <input
-                    :id="`${product.model}-${colorName}-${sizeName}`"
-                    type="number"
-                    class="product__label-input"
-                    min="0"
-                    :value="amount"
-                    @change="
-                      changeValue({
-                        model: product.model,
-                        color: colorName,
-                        size: sizeName,
-                        amount: $event.target.value,
-                      })
-                    "
-                  />
-                </label>
-              </div>
-              <button
-                class="product__color-btn"
-                @click="deleteColor({ model: product.model, color: colorName })"
-              >
-                Удалить
-              </button>
-            </div>
-          </div>
+          </ul>
+        </div>
+        <div class="product__info-color">
+          <h2 class="product__title">Добавленные цвета</h2>
+          <ul class="product__info-list">
+            <li
+              class="product__info-item"
+              v-for="(item, value) in preOrder[product.model]"
+              :key="`${product.model}+${value}`"
+              @click="deleteColor({ model: product.model, color: value })"
+            >
+              {{ colorsMap[value].name }}
+            </li>
+          </ul>
         </div>
       </div>
     </div>
-    <SelectedColorCard />
   </div>
 </template>
 <script>
@@ -102,7 +63,6 @@ import colorsMap from "../assets/js/colorMap.js";
 import ColorCard from "../components/ColorCard.vue";
 import colorsOnEnglish from "../assets/js/colorsOnEnglish.js";
 import sizesList from "../assets/js/sizes.js";
-import SelectedColorCard from "../components/SelectedColorCard.vue";
 import { Carousel3d, Slide } from "vue-carousel-3d";
 import { mapMutations } from "vuex";
 
@@ -112,7 +72,6 @@ export default {
     ColorCard,
     Carousel3d,
     Slide,
-    SelectedColorCard,
   },
 
   data() {
@@ -247,38 +206,68 @@ export default {
     background-color: #f7f7f7;
   }
   &__info {
-    max-width: 600px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+  }
+  &__info-color {
+    max-width: 50%;
+    width: 100%;
+  }
+  &__info-list {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+  &__info-item {
+    padding: 8px 12px;
+    background-color: azure;
+    border-radius: 25px;
+    border: 1px solid black;
+    margin: 4px 8px;
+    font-weight: bold;
+  }
+  &__info-text {
+    max-width: 50%;
     width: 100%;
   }
   &__title {
     display: block;
     width: 100%;
     text-align: center;
+    margin-bottom: 8px;
   }
   &__details-info {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
     margin-bottom: 12px;
     padding: 8px 0;
   }
   &__model {
     font-weight: bold;
     display: block;
+    text-align: center;
     margin-bottom: 12px;
   }
   &__compound {
     display: block;
+    text-align: center;
   }
   &__price {
     display: flex;
     justify-content: space-around;
+    flex-direction: column;
     margin-bottom: 12px;
-    border-bottom: 1px solid #eaadef;
   }
   &__price-item {
-    padding: 4px 0;
+    padding: 4px 8px;
+    max-width: 320px;
+    width: 100%;
+    margin: 0 auto 10px;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 6px;
+    background-color: #eaadef;
+    font-weight: bold;
   }
 }
 </style>
