@@ -1,6 +1,8 @@
 <template>
-  <div class="filters">
-    <div class="filters__title">Фильтры</div>
+  <div class="filters" v-bind:class="{ active: filterActive }">
+    <div class="filters__title" @click="filterActive = !filterActive">
+      Фильтры
+    </div>
     <div class="filters__category" v-for="(category, key) in config" :key="key">
       <h3 class="filters__subtitle">{{ category.label }}</h3>
       <div class="filters__inner">
@@ -31,6 +33,7 @@ export default {
   data() {
     return {
       config,
+      filterActive: false,
     };
   },
   computed: {
@@ -49,15 +52,41 @@ export default {
   width: 280px;
   border-radius: 12px;
   padding: 12px;
+  @media (max-width: 900px) {
+    width: 100%;
+    overflow: hidden;
+  }
+
+  @media (max-width: 900px) {
+    &.active {
+      .filters__category {
+        transform: translateY(0);
+        opacity: 1;
+        position: static;
+      }
+    }
+  }
   &__title {
     font-size: 32px;
     margin-bottom: 24px;
     font-weight: 600;
+    @media (max-width: 900px) {
+      background-image: url("../assets/images/filters-arrow.svg");
+      background-position: top right;
+      background-repeat: no-repeat;
+      background-size: contain;
+    }
   }
   &__category {
     display: flex;
     flex-direction: column;
     margin-bottom: 14px;
+    transition: 0.3s;
+    @media (max-width: 900px) {
+      position: absolute;
+      opacity: 0;
+      transform: translateY(-800px);
+    }
   }
   &__subtitle {
     font-size: 18px;
@@ -69,6 +98,12 @@ export default {
     padding: 0 0 0 24px;
     display: flex;
     flex-direction: column;
+    @media (max-width: 900px) {
+      flex-direction: row;
+    }
+    @media (max-width: 680px) {
+      flex-direction: column;
+    }
   }
   &__btn {
     background: none;
@@ -81,6 +116,11 @@ export default {
     font-weight: 600;
     font-size: 16px;
     transition: 0.3s;
+    @media (max-width: 900px) {
+      display: block;
+      width: 100%;
+    }
+
     &.active {
       background-color: #eaadef;
     }

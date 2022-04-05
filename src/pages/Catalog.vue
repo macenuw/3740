@@ -37,13 +37,24 @@ export default {
 .catalog {
   display: flex;
   align-items: flex-start;
-  justify-content: space-between;
+  justify-content: center;
+  gap: 30px;
   padding-bottom: 30px;
   min-height: calc(100vh - 282px);
+  @media (max-width: 900px) {
+    flex-direction: column;
+    align-items: center;
+  }
   &__show {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 30px 30px;
+    @media (max-width: 1270px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    @media (max-width: 680px) {
+      grid-template-columns: repeat(1, 1fr);
+    }
   }
 }
 </style>

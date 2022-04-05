@@ -19,6 +19,7 @@ export default new Vuex.Store({
       gamma: "",
     },
     preOrder: {},
+    isCard: false,
   },
   mutations: {
     updateFilter(state, { key, option }) {
@@ -78,6 +79,9 @@ export default new Vuex.Store({
         ...state.preOrder,
       };
     },
+    changeIsCard(state) {
+      state.isCard = !state.isCard;
+    },
   },
   getters: {
     productsByFilter(state) {
@@ -124,11 +128,8 @@ export default new Vuex.Store({
       let result = 0;
       for (let model in state.preOrder) {
         for (let color in state.preOrder[model]) {
-          console.log(color);
           for (let size in state.preOrder[model][color]) {
-            console.log(size);
             if (state.preOrder[model][color][size] > 0) {
-              console.log(result);
               result +=
                 state.preOrder[model][color][size] * priceList[model][size];
             }

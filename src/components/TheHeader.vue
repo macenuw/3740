@@ -34,7 +34,7 @@
           </router-link>
         </li>
       </ul>
-      <button class="menu__card" type="button" @click="isCard = !isCard">
+      <button class="menu__card" type="button" @click="changeIsCard">
         <svg
           version="1.1"
           id="Capa_1"
@@ -67,7 +67,7 @@
     >
       <div class="card__inner">
         <h2 class="card__title">Корзина</h2>
-        <button class="card__close-btn" @click="isCard = !isCard"></button>
+        <button class="card__close-btn" @click="changeIsCard"></button>
         <div class="card__order">
           <ul class="card__product">
             <li
@@ -133,7 +133,7 @@
             <span class="card__total-cost"> {{ totalPrice }} &#8372;</span>
           </div>
           <router-link
-            @click="isCard = !isCard"
+            @click="changeIsCard"
             :to="{ name: 'OrderPage' }"
             class="card__order-done"
           >
@@ -158,17 +158,19 @@ export default {
       price,
       sizesList,
       isActive: false,
-      isCard: false,
     };
   },
   computed: {
     preOrder() {
       return this.$store.state.preOrder;
     },
+    isCard() {
+      return this.$store.state.isCard;
+    },
     ...mapGetters(["totalPrice"]),
   },
   methods: {
-    ...mapMutations(["reduceAmount", "increaseQuantity"]),
+    ...mapMutations(["reduceAmount", "increaseQuantity", "changeIsCard"]),
   },
 };
 </script>
@@ -246,7 +248,7 @@ export default {
     justify-content: center;
     align-items: center;
     padding: 12px;
-    top: 0;
+    top: 80px;
     left: 15px;
     right: 15px;
     border-radius: 15px;
@@ -263,12 +265,10 @@ export default {
   }
   &__item {
     margin: 0 12px;
-    @media (max-width: 800px) {
-      padding: 8px;
-    }
   }
 
   &__link {
+    display: block;
     color: white;
     font-size: 18px;
     font-weight: 400;
@@ -278,6 +278,7 @@ export default {
     padding: 0 5px;
     @media (max-width: 998px) {
       font-size: 16px;
+      padding: 12px;
     }
     &:hover {
       color: #eaadef;

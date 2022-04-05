@@ -53,6 +53,9 @@
               {{ colorsMap[value].name }}
             </li>
           </ul>
+          <button class="product__card-btn" @click="changeIsCard">
+            Перейти в корзину
+          </button>
         </div>
       </div>
     </div>
@@ -97,7 +100,7 @@ export default {
       productColor.unshift(color);
       this.product.colors = productColor;
     },
-    ...mapMutations(["changeValue", "deleteColor"]),
+    ...mapMutations(["changeValue", "deleteColor", "changeIsCard"]),
   },
 };
 </script>
@@ -210,15 +213,28 @@ export default {
     display: flex;
     justify-content: space-between;
     margin-bottom: 30px;
+    @media (max-width: 820px) {
+      flex-direction: column;
+      align-items: center;
+    }
   }
   &__info-color {
     max-width: 50%;
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    @media (max-width: 820px) {
+      max-width: 100%;
+      margin-bottom: 12px;
+    }
   }
   &__info-list {
     display: flex;
     flex-wrap: wrap;
     width: 100%;
+    margin-bottom: 12px;
   }
   &__info-item {
     padding: 8px 12px;
@@ -231,6 +247,10 @@ export default {
   &__info-text {
     max-width: 50%;
     width: 100%;
+    @media (max-width: 820px) {
+      max-width: 100%;
+      order: 2;
+    }
   }
   &__title {
     display: block;
@@ -268,6 +288,23 @@ export default {
     border-radius: 6px;
     background-color: #eaadef;
     font-weight: bold;
+  }
+  &__card-btn {
+    background: none;
+    box-shadow: none;
+    border: 2px solid black;
+    margin: 0 auto;
+    max-width: 50%;
+    width: 100%;
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-weight: bold;
+    @media (max-width: 820px) {
+      max-width: 50%;
+    }
+    @media (max-width: 575px) {
+      max-width: 100%;
+    }
   }
 }
 </style>

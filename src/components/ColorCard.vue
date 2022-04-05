@@ -81,6 +81,9 @@ export default {
     transition: 0.5s;
     background-color: rgba(0, 0, 0, 0.3);
     cursor: pointer;
+    @media (max-width: 350px) {
+      left: 5%;
+    }
   }
   &__img-inner {
     width: 100%;

@@ -4,9 +4,7 @@
       <VueSlickCarousel v-bind="settings" ref="slick">
         <div class="slider__item">
           <div class="slider__info">
-            <p class="slider__text">
-              Иметь футболку лучше чем когда Футболка имеет тебя!
-            </p>
+            <p class="slider__text">Футболки на каждый день!</p>
             <a href="#" class="slider__link">Подробнее</a>
           </div>
           <div class="slider__img-inner">
@@ -19,7 +17,7 @@
         </div>
         <div class="slider__item">
           <div class="slider__info">
-            <p class="slider__text">Брителька не стринги плечи не режет</p>
+            <p class="slider__text">Майки на все случаи жизни</p>
             <a href="#" class="slider__link">Подробнее</a>
           </div>
           <div class="slider__img-inner">
@@ -32,9 +30,7 @@
         </div>
         <div class="slider__item">
           <div class="slider__info">
-            <p class="slider__text">
-              Иметь футболку лучше чем когда Футболка имеет тебя!
-            </p>
+            <p class="slider__text">Большой ассортимент цветов!</p>
             <a href="#" class="slider__link">Подробнее</a>
           </div>
           <div class="slider__img-inner">

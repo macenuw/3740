@@ -35,8 +35,8 @@ export default {
         arrows: false,
         infinite: true,
         autoplay: true,
-        speed: 5000,
-        centerMode: true,
+        speed: 2000,
+        draggable: false,
         pauseOnDotsHover: true,
         pauseOnFocus: true,
         pauseOnHover: true,
@@ -56,7 +56,7 @@ export default {
               slidesToShow: 2,
               slidesToScroll: 1,
               centerMode: false,
-              centerPadding: "50px",
+              centerPadding: "0px",
             },
           },
           {
@@ -65,7 +65,7 @@ export default {
               slidesToShow: 1,
               slidesToScroll: 1,
               centerMode: false,
-              centerPadding: "50px",
+              centerPadding: "0px",
             },
           },
         ],
@@ -83,6 +83,8 @@ export default {
   }
   .product-card__item {
     margin: 0 auto;
+    display: block !important;
+    width: 100%;
   }
 }
 </style>
