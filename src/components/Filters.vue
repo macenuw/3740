@@ -51,7 +51,7 @@ export default {
 .filters {
   width: 280px;
   border-radius: 12px;
-  padding: 12px;
+  padding: 15px;
   @media (max-width: 900px) {
     width: 100%;
     overflow: hidden;
