@@ -29,6 +29,8 @@ export default new Vuex.Store({
         } else {
           state.filter[key].push(option);
         }
+      } else if (state.filter[key] === option) {
+        state.filter[key] = "";
       } else {
         state.filter[key] = option;
       }
@@ -39,17 +41,18 @@ export default new Vuex.Store({
       }
     },
     addColor(state, { model, color }) {
-      console.log(state.preOrder, model, color);
       if (!state.preOrder[model]) {
         state.preOrder[model] = {};
       }
       if (!state.preOrder[model][color]) {
-        state.preOrder[model][color] = {
-          1: 0,
-          2: 0,
-          3: 0,
-          4: 0,
-        };
+        products.forEach((item) => {
+          if (item.model === model) {
+            state.preOrder[model][color] = {};
+            for (let i = 0; i < item.size.length; i++) {
+              state.preOrder[model][color][i + 1] = 0;
+            }
+          }
+        });
       }
       state.preOrder = {
         ...state.preOrder,
@@ -61,6 +64,10 @@ export default new Vuex.Store({
     },
     deleteColor(state, { model, color }) {
       delete state.preOrder[model][color];
+      const modelArr = Object.keys(state.preOrder[model]);
+      if (modelArr[0] === undefined) {
+        delete state.preOrder[model];
+      }
       state.preOrder = {
         ...state.preOrder,
       };

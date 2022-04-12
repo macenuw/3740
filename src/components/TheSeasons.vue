@@ -32,6 +32,7 @@ export default {
   grid-template-rows: repeat(2, 400px);
   grid-gap: 30px 20px;
   margin-bottom: 64px;
+  padding: 0 15px;
   @media (max-width: 830px) {
     grid-template-rows: repeat(2, 30vh);
   }

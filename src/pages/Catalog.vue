@@ -37,11 +37,10 @@ export default {
 .catalog {
   display: flex;
   align-items: flex-start;
-  justify-content: center;
-  gap: 30px;
+  gap: 20px;
   padding-bottom: 30px;
-  min-height: calc(100vh - 282px);
   @media (max-width: 900px) {
+    justify-content: center;
     flex-direction: column;
     align-items: center;
   }

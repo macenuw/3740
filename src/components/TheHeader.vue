@@ -69,65 +69,71 @@
         <h2 class="card__title">Корзина</h2>
         <button class="card__close-btn" @click="changeIsCard"></button>
         <div class="card__order">
-          <ul class="card__product">
-            <li
-              class="card__model"
-              v-for="(colors, modelName, index) in preOrder"
-              :key="index"
-            >
-              Модель: {{ modelName }}
-              <ul
-                class="card__color"
-                v-for="(sizeItem, colorName) in colors"
-                :key="colorName"
+          <vue-custom-scrollbar
+            class="scroll-area"
+            :settings="settings"
+            @ps-scroll-y="scrollHanle"
+          >
+            <ul class="card__product">
+              <li
+                class="card__model"
+                v-for="(colors, modelName, index) in preOrder"
+                :key="index"
               >
-                <li class="card__color-item">
-                  {{ colorsMap[colorName].name }}
-                  <ul
-                    class="card__size-amount"
-                    v-for="(size, value, index) in sizeItem"
-                    :key="index"
-                  >
-                    <li class="card__size-amount-item">
-                      <div class="card__amount">
-                        <span class="card__size">{{ sizesList[value] }}</span>
-                        <button
-                          type="button"
-                          class="card__amount-less"
-                          @click="
-                            reduceAmount({
-                              model: modelName,
-                              color: colorName,
-                              size: value,
-                            })
-                          "
-                        >
-                          -
-                        </button>
-                        <span class="card__amount-int">{{ size }}</span>
-                        <button
-                          type="button"
-                          class="card__amount-more"
-                          @click="
-                            increaseQuantity({
-                              model: modelName,
-                              color: colorName,
-                              size: value,
-                            })
-                          "
-                        >
-                          +
-                        </button>
-                        <span class="card__price"
-                          >Цена: {{ price[modelName][value] }} &#8372;</span
-                        >
-                      </div>
-                    </li>
-                  </ul>
-                </li>
-              </ul>
-            </li>
-          </ul>
+                Модель: {{ modelName }}
+                <ul
+                  class="card__color"
+                  v-for="(sizeItem, colorName) in colors"
+                  :key="colorName"
+                >
+                  <li class="card__color-item">
+                    {{ colorsMap[colorName].name }}
+                    <ul
+                      class="card__size-amount"
+                      v-for="(size, value, index) in sizeItem"
+                      :key="index"
+                    >
+                      <li class="card__size-amount-item">
+                        <div class="card__amount">
+                          <span class="card__size">{{ sizesList[value] }}</span>
+                          <button
+                            type="button"
+                            class="card__amount-less"
+                            @click="
+                              reduceAmount({
+                                model: modelName,
+                                color: colorName,
+                                size: value,
+                              })
+                            "
+                          >
+                            -
+                          </button>
+                          <span class="card__amount-int">{{ size }}</span>
+                          <button
+                            type="button"
+                            class="card__amount-more"
+                            @click="
+                              increaseQuantity({
+                                model: modelName,
+                                color: colorName,
+                                size: value,
+                              })
+                            "
+                          >
+                            +
+                          </button>
+                          <span class="card__price"
+                            >Цена: {{ price[modelName][value] }} &#8372;</span
+                          >
+                        </div>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </vue-custom-scrollbar>
           <div class="card__total">
             <span>Сумма Заказа:</span>
             <span class="card__total-cost"> {{ totalPrice }} &#8372;</span>
@@ -150,14 +156,24 @@ import colorsMap from "../assets/js/colorMap.js";
 import price from "../assets/js/price.js";
 import sizesList from "../assets/js/sizes.js";
 import { mapMutations, mapGetters } from "vuex";
+import vueCustomScrollbar from "vue-custom-scrollbar";
+import "vue-custom-scrollbar/dist/vueScrollbar.css";
 
 export default {
+  components: {
+    vueCustomScrollbar,
+  },
   data() {
     return {
       colorsMap,
       price,
       sizesList,
       isActive: false,
+      settings: {
+        suppressScrollY: false,
+        suppressScrollX: false,
+        wheelPropagation: false,
+      },
     };
   },
   computed: {
@@ -289,6 +305,12 @@ export default {
       }
     }
   }
+  .scroll-area {
+    position: relative;
+    margin: auto;
+    width: 600px;
+    height: 400px;
+  }
   &__card {
     border: none;
     background: none;
@@ -306,10 +328,10 @@ export default {
   }
 }
 .card {
-  position: absolute;
+  position: fixed;
   background-color: white;
   width: 40vw;
-  right: 0;
+  right: calc(50vw - 673px);
   top: 100px;
   z-index: 999;
   padding: 8px;
@@ -318,6 +340,9 @@ export default {
   transition: 0.3s;
   min-width: 320px;
   max-width: 420px;
+  @media (max-width: 1360px) {
+    right: 0;
+  }
   &.active {
     transform: translateX(0px);
   }
@@ -353,6 +378,7 @@ export default {
   }
   &__product {
     overflow: auto;
+    padding-right: 20px;
   }
   &__model {
     font-weight: bold;
@@ -360,13 +386,9 @@ export default {
   &__color {
     padding: 8px 0 0 8px;
   }
-  &__color__item {
-  }
   &__size-amount {
     padding: 8px 0 0 16px;
     font-weight: normal;
-  }
-  &__size-amount-item {
   }
   &__amount {
     display: flex;

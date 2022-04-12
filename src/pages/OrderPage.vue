@@ -180,8 +180,10 @@ export default {
   background-image: url("../assets/images/delivery-bg.jpeg");
   background-position: top right;
   background-repeat: no-repeat;
-  min-height: calc(100vh - 312px);
   margin-bottom: 30px;
+  @media (max-width: 820px) {
+    background-image: none;
+  }
   &__title {
     margin-bottom: 30px;
     text-align: center;
@@ -189,6 +191,11 @@ export default {
   &__form {
     display: flex;
     flex-direction: column;
+    @media (max-width: 820px) {
+      max-width: 320px;
+      width: 100%;
+      margin: 0 auto;
+    }
   }
   &__label {
     max-width: 320px;

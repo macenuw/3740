@@ -24,20 +24,22 @@
         {{ product.name }}
         <span class="product-card__number"> № {{ product.model }} </span>
       </h3>
-      <div
-        class="product-card__size-price"
-        v-for="(price, size) in product.prices"
-        :key="size"
-      >
-        <div class="product-card__row d-flex">
-          <span class="product-card__size">{{ sizesMap[size] }}</span>
-          <span class="product-card__cost">
-            Цена:
-            <span class="product-card__price"> {{ price }} грн </span>
-          </span>
+      <div class="product-card__price-info">
+        <div
+          class="product-card__size-price"
+          v-for="(price, size) in product.prices"
+          :key="size"
+        >
+          <div class="product-card__row d-flex">
+            <span class="product-card__size">{{ sizesMap[size] }}</span>
+            <span class="product-card__cost">
+              Цена:
+              <span class="product-card__price"> {{ price }} грн </span>
+            </span>
+          </div>
         </div>
       </div>
-      <div class="product-card__colors d-flex">
+      <!-- <div class="product-card__colors d-flex">
         <h4 class="product-card__colors-title">Цвета</h4>
         <a
           href="#"
@@ -50,7 +52,7 @@
             :style="{ backgroundColor: `#${colorsMap[color].colorCode}` }"
           ></span>
         </a>
-      </div>
+      </div> -->
     </div>
   </router-link>
 </template>
@@ -100,14 +102,13 @@ export default {
     border-radius: 12px;
     background-color: white;
     border: 1px solid black;
+    height: 500px;
   }
 
   &__inner {
     flex-direction: column;
-    justify-content: center;
     align-items: center;
     height: 100%;
-    height: 611px;
   }
   &__slider {
     width: 300px;
@@ -147,7 +148,11 @@ export default {
     display: block;
     text-align: center;
   }
-
+  &__price-info {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
   &__size-price {
     display: flex;
     flex-direction: column;

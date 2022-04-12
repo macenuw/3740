@@ -8,7 +8,6 @@
 <script>
 import Header from "./components/TheHeader.vue";
 import Footer from "./components/TheFooter.vue";
-
 export default {
   name: "App",
   components: {
@@ -23,6 +22,9 @@ export default {
 @import "/src/assets/scss/global.scss";
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
 #app {
-  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100vh;
 }
 </style>

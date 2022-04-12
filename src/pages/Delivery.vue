@@ -6,6 +6,5 @@ export default {};
 </script>
 <style lang="scss" scoped>
 .delivery {
-  min-height: calc(100vh - 282px);
 }
 </style>

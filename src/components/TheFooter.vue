@@ -14,35 +14,6 @@
         </li>
       </ul>
     </div>
-    <div class="footer__down">
-      <ul
-        class="menu"
-        v-bind:class="{
-          active: isActive,
-        }"
-      >
-        <li class="menu__item" @click="isActive = !isActive">
-          <router-link :to="{ name: 'MainPage' }" class="menu__link">
-            Главная
-          </router-link>
-        </li>
-        <li class="menu__item" @click="isActive = !isActive">
-          <router-link :to="{ name: 'CatalogPage' }" class="menu__link">
-            Каталог
-          </router-link>
-        </li>
-        <li class="menu__item" @click="isActive = !isActive">
-          <router-link :to="{ name: 'DeliveryPage' }" class="menu__link">
-            Оплата и Доставка
-          </router-link>
-        </li>
-        <li class="menu__item" @click="isActive = !isActive">
-          <router-link :to="{ name: 'ContactPage' }" class="menu__link">
-            Контакты
-          </router-link>
-        </li>
-      </ul>
-    </div>
   </footer>
 </template>
 <script></script>
@@ -57,7 +28,6 @@
   &__top {
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 30px;
     @media (max-width: 700px) {
       flex-direction: column;
     }

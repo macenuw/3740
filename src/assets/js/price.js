@@ -11,5 +11,9 @@ const price = {
     3: 105,
     4: 115,
   },
+  ["80-3"]: {
+    1: 90,
+    2: 100,
+  },
 };
 export default price;
